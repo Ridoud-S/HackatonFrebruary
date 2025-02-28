@@ -77,6 +77,8 @@ public class WalletKeyService {
         return walletKeyRepository.save(walletKey);
     }
 
+    
+
     // Método para obtener la clave pública de una wallet (en formato PublicKey)
     public PublicKey getPublicKeyForWallet(Long walletId) {
         Optional<WalletKey> keyOpt = walletKeyRepository.findByWalletId(walletId);

@@ -12,6 +12,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
+
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
@@ -37,5 +38,16 @@ public class UserService {
 
     public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    public boolean validatePassword(String password, String password1)
+    {
+        if (passwordEncoder.matches(password, password1))
+        {
+
+            return true;
+        }
+        return false;
+
     }
 }
